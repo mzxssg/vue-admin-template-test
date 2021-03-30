@@ -4,7 +4,7 @@ import Router from 'vue-router'
 // in development-env not use lazy-loading, because lazy-loading too many pages will cause webpack hot update too slow. so only in production use lazy-loading;
 // detail: https://panjiachen.github.io/vue-element-admin-site/#/lazy-loading
 
-Vue.use(Router)
+Vue.use(Router);
 
 /* Layout */
 import Layout from '../views/layout/Layout'
@@ -55,6 +55,36 @@ export const constantRouterMap = [
         name: '医院设置添加',
         component: () => import('@/views/hospset/add'),
         meta: { title: '医院设置添加', icon: 'tree' }
+      },
+      {
+        path: 'edit/:id',
+        name: '医院设置修改',
+        component: () =>import('@/views/hospset/add'),
+        meta: { title: '编辑', noCache: true },
+        hidden: true
+      },
+      {
+        path: 'hosp/list',
+        name: '医院列表',
+        component: () => import('@/views/hosp/list'),
+        meta: { title: '医院列表', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/cmn',
+    component: Layout,
+    redirect: '/cmn/list',
+    name: '数据管理',
+    alwaysShow: true,
+    meta: { title: '数据管理', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: '数据字典',
+        component: () => import('@/views/dict/list'),
+        meta: { title: '数据字典', icon: 'table' }
       }
     ]
   },
@@ -164,7 +194,7 @@ export const constantRouterMap = [
   },
 
   { path: '*', redirect: '/404', hidden: true }
-]
+];
 
 export default new Router({
   // mode: 'history', //后端支持可开
