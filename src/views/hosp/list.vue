@@ -67,10 +67,10 @@
 
       <el-table-column label="操作" width="230" align="center">
         <template slot-scope="scope">
-          <router-link :to="'/hospSet/hospital/show/'+scope.row.id">
+          <router-link :to="'/hospSet/hosp/show/'+scope.row.id">
             <el-button type="primary" size="mini">查看</el-button>
           </router-link>
-          <router-link :to="'/hospSet/hospital/schedule/'+scope.row.hoscode">
+          <router-link :to="'/hospSet/hosp/schedule/'+scope.row.hoscode">
             <el-button type="primary" size="mini">排班</el-button>
           </router-link>
 
